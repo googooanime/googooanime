@@ -1,8 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartItem = ({ item, removeFromCart, increaseQuantity, decreaseQuantity }) => {
+  const navigate = useNavigate(); // Initialize useNavigate inside the component
+
+  const handleProductClick = () => {
+    navigate(`/product/${item.id}`); // Navigate to the product page with the item's ID
+  };
+
   return (
-    <div className="flex justify-between items-center bg-white shadow-md p-4 rounded-lg mb-4">
+    <div
+      className="flex justify-between items-center bg-white shadow-md p-4 rounded-lg mb-4"
+      onClick={handleProductClick}
+    >
       <img
         src={item.image}
         alt={item.name}
@@ -13,14 +23,20 @@ const CartItem = ({ item, removeFromCart, increaseQuantity, decreaseQuantity }) 
         <p>${item.price}</p>
         <div className="flex items-center mt-2">
           <button
-            onClick={() => decreaseQuantity(item.id)}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent parent click
+              decreaseQuantity(item.id);
+            }}
             className="text-gray-500 hover:text-gray-700 px-2"
           >
             -
           </button>
           <span className="mx-2">{item.quantity}</span>
           <button
-            onClick={() => increaseQuantity(item.id)}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent parent click
+              increaseQuantity(item.id);
+            }}
             className="text-gray-500 hover:text-gray-700 px-2"
           >
             +
@@ -28,7 +44,10 @@ const CartItem = ({ item, removeFromCart, increaseQuantity, decreaseQuantity }) 
         </div>
       </div>
       <button
-        onClick={() => removeFromCart(item.id)}
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent parent click
+          removeFromCart(item.id);
+        }}
         className="text-red-500 hover:text-red-700"
       >
         Remove

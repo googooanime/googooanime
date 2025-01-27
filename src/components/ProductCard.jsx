@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
       />
       <div className="p-4">
         <h2 className="text-lg font-semibold">{product.name}</h2>
-        <p className="text-gray-500 mt-1">${product.price}</p>
+        <p className="text-gray-500 mt-1">₹{product.price}</p>
         <button
           onClick={handleAddToCart} // Only handle "Add to Cart" without navigation
           className="mt-3 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"

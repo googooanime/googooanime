@@ -30,8 +30,8 @@ const ProductPage = ({ products }) => {
   };
 
   return (
-    <div className="container mx-auto p-4 max-w-4xl">
-      <div className="flex flex-col md:flex-row gap-6">
+    <div className="container mx-auto p-4  max-w-4xl">
+      <div className="flex m-5 flex-col  gap-6">
         {/* Product Image */}
         <div className="flex-1">
           <img
@@ -44,7 +44,7 @@ const ProductPage = ({ products }) => {
         {/* Product Details */}
         <div className="flex-1">
           <h2 className="text-3xl font-semibold mb-4">{product.name}</h2>
-          <p className="text-xl text-gray-500 mb-2">${product.price}</p>
+          <p className="text-xl text-gray-500 mb-2">₹{product.price}</p>
 
           {/* Quantity Selector */}
           <div className="flex items-center gap-4 mb-6">

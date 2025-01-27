@@ -12,6 +12,7 @@ const Cart = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
+  
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-semibold mb-4">Your Cart</h2>
